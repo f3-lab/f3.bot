@@ -10,7 +10,7 @@ async def main():
     app = ApplicationBuilder().token(TOKEN).build()
 
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🍽 Открыть меню", url="https://t.me/YOUR_BOT_USERNAME")]
+        [InlineKeyboardButton("🍽 Открыть меню", url="https://t.me/@f3food_bot")]
     ])
 
     await app.bot.send_message(
