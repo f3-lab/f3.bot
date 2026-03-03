@@ -7,7 +7,7 @@ CHANNEL_ID = -1003891725312  # твой канал
 
 async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🍽 Открыть меню", url="https://t.me/YOUR_BOT_USERNAME")]
+        [InlineKeyboardButton("🍽 Открыть меню", url="https://t.me/f3food_bot")]
     ])
 
     await context.bot.send_message(
