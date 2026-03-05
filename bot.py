@@ -1,9 +1,15 @@
 import os
+import sys
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 TOKEN = os.getenv("BOT_TOKEN")
-CHANNEL_ID = -1003891725312  # твой канал
+
+if not TOKEN:
+    print("ERROR: BOT_TOKEN not found")
+    sys.exit(1)
+
+CHANNEL_ID = -1003891725312
 
 async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([
@@ -19,6 +25,7 @@ async def post(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Сообщение отправлено в канал")
 
 def main():
+    print("Starting bot...")
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("post", post))
     app.run_polling()
